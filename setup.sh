@@ -1,4 +1,6 @@
 #!/bin/sh
 
+ln -s /var/www/oom-killer-killer/oomkk-nginx.conf /etc/nginx/sites-enabled/oomkk-nginx.conf
+invoke-rc.d nginx restart
 mysql < ./setup.sql
-cat <(crontab -l) <(echo "*/5 * * * * /usr/bin/php /var/www/oom-killer-killer/job.php /var/log/oomkk.log 2>&1") | crontab -
+crontab -l | { cat; cat ./crontab.txt; } | crontab -
