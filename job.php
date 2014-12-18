@@ -7,7 +7,7 @@ if ('ok' !== @file_get_contents($host . 'check.txt')) {
     system('invoke-rc.d nginx restart');
 }
 
-if ('ok' !== @file_get_contents($host . 'job.php')) {
+if ('ok' !== @file_get_contents($host . 'check.php')) {
     system('invoke-rc.d php5-fpm restart');
 }
 
