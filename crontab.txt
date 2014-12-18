@@ -1,0 +1,4 @@
+MAILTO=""
+PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+
+*/5       *       *       *       *        /usr/bin/php /home/oom-killer-killer/job.php /var/log/oomkk.log 2>&1

@@ -1,14 +1,13 @@
 #!/usr/bin/php
 <?php
 
-$mysql = '';
-$host = 'http://oom.phph.tk/';
+$host = 'http://oomkk.phph.tk/';
 
-if ('ok' !== file_get_contents($host . 'check.txt')) {
+if ('ok' !== @file_get_contents($host . 'check.txt')) {
     system('invoke-rc.d nginx restart');
 }
 
-if ('ok' !== file_get_contents($host . 'job.php')) {
+if ('ok' !== @file_get_contents($host . 'job.php')) {
     system('invoke-rc.d php5-fpm restart');
 }
 
@@ -18,5 +17,7 @@ if ($mysqli->connect_error) {
     echo ('Connect Error (' . $mysqli->connect_errno . ') '
         . $mysqli->connect_error);
 
-    system('invoke-rc.d mysql restart');
+    if (2002 == $mysqli->connect_errno) {
+        system('invoke-rc.d mysql restart');
+    }
 }
