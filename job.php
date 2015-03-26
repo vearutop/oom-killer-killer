@@ -4,11 +4,11 @@
 $host = 'http://oomkk.phph.tk/';
 
 if ('ok' !== @file_get_contents($host . 'check.txt')) {
-    system('invoke-rc.d nginx restart');
+    system('/usr/sbin/invoke-rc.d nginx restart');
 }
 
 if ('ok' !== @file_get_contents($host . 'check.php')) {
-    system('invoke-rc.d php5-fpm restart');
+    system('/usr/sbin/invoke-rc.d php5-fpm restart');
 }
 
 
@@ -18,6 +18,6 @@ if ($mysqli->connect_error) {
         . $mysqli->connect_error);
 
     if (2002 == $mysqli->connect_errno) {
-        system('invoke-rc.d mysql restart');
+        system('/usr/sbin/invoke-rc.d mysql restart');
     }
 }

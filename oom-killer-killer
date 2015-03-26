@@ -1,0 +1,2 @@
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+*       *       *       *       *	root        /usr/bin/php /var/www/oom-killer-killer/job.php /var/log/oomkk.log 2>&1
